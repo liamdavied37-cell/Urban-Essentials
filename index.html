@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UrbanEssentials Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+ margin:0;
+ font-family:'Poppins',sans-serif;
+ background:#f3f4f6;
+ color:#111;
+}
+
+.header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:15px 20px;
+ background:#111827;
+ color:#fff;
+}
+
+.search{
+ padding:10px;
+ border-radius:10px;
+ border:none;
+ width:250px;
+}
+
+.container{
+ padding:20px;
+}
+
+.hero{
+ background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab') center/cover;
+ height:200px;
+ border-radius:15px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ padding:20px;
+ color:#fff;
+ margin-bottom:20px;
+}
+
+.categories button{
+ margin:5px;
+ padding:8px 12px;
+ border:none;
+ border-radius:8px;
+ cursor:pointer;
+ background:#e5e7eb;
+}
+
+.categories button.active{
+ background:#2563eb;
+ color:white;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:20px;
+}
+
+.card{
+ background:white;
+ border-radius:15px;
+ overflow:hidden;
+ transition:0.3s;
+ box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+ transform:translateY(-8px);
+ box-shadow:0 15px 25px rgba(0,0,0,0.2);
+}
+
+.card img{
+ width:100%;
+ height:160px;
+ object-fit:cover;
+}
+
+.card-body{
+ padding:10px;
+}
+
+.btn{
+ width:100%;
+ padding:10px;
+ margin-top:10px;
+ border:none;
+ border-radius:10px;
+ cursor:pointer;
+ background:linear-gradient(135deg,#ff9900,#ff6600);
+ color:white;
+ font-weight:600;
+}
+
+.admin{
+ margin-top:30px;
+ padding:20px;
+ background:white;
+ border-radius:10px;
+}
+
+input, select{
+ display:block;
+ margin:10px 0;
+ padding:8px;
+ width:100%;
+ border-radius:8px;
+ border:1px solid #ddd;
+}
+
+@media(max-width:1000px){
+ .grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
+ .grid{grid-template-columns:repeat(1,1fr);}
+ .search{width:100%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+ <h2>UrbanEssentials Pro</h2>
+ <input class="search" placeholder="Search products..." onkeyup="searchProducts(this.value)">
+</div>
+
+<div class="container">
+
+<div class="hero">
+ <h1>Smart essentials for city life</h1>
+ <p>Discover products that make your life easier</p>
+</div>
+
+<div class="categories">
+ <button onclick="setCategory('all')" class="active">All</button>
+ <button onclick="setCategory('apartment')">Apartment</button>
+ <button onclick="setCategory('tech')">Tech</button>
+ <button onclick="setCategory('kitchen')">Kitchen</button>
+ <button onclick="setCategory('daily')">Daily</button>
+</div>
+
+<div id="products" class="grid"></div>
+
+<div class="admin">
+ <h3>Admin Panel (Add Product)</h3>
+ <input id="name" placeholder="Product Name">
+ <input id="img" placeholder="Image URL">
+ <input id="link" placeholder="Affiliate Link">
+ <select id="category">
+  <option value="apartment">Apartment</option>
+  <option value="tech">Tech</option>
+  <option value="kitchen">Kitchen</option>
+  <option value="daily">Daily</option>
+ </select>
+ <button class="btn" onclick="addProduct()">Add Product</button>
+</div>
+
+</div>
+
+<script>
+
+let products = JSON.parse(localStorage.getItem('products')) || [
+ {name:"Folding Desk",img:"https://images.unsplash.com/photo-1586023492125-27b2c045efd7",link:"#",category:"apartment"},
+ {name:"Headphones",img:"https://images.unsplash.com/photo-1518441902110-5bd5d6653b86",link:"#",category:"tech"}
+];
+
+let currentCategory = "all";
+
+function save(){
+ localStorage.setItem('products',JSON.stringify(products));
+}
+
+function display(list = products){
+ const container = document.getElementById('products');
+ container.innerHTML = "";
+
+ list.forEach(p=>{
+  container.innerHTML += `
+   <div class="card">
+    <img src="${p.img}">
+    <div class="card-body">
+     <h4>${p.name}</h4>
+     <button class="btn" onclick="window.open('${p.link}')">
+      🔗 Buy on Amazon
+     </button>
+    </div>
+   </div>
+  `;
+ });
+}
+
+function setCategory(cat){
+ currentCategory = cat;
+
+ let filtered = (cat === "all") ? products :
+  products.filter(p => p.category === cat);
+
+ display(filtered);
+
+ document.querySelectorAll(".categories button")
+ .forEach(b => b.classList.remove("active"));
+
+ event.target.classList.add("active");
+}
+
+function searchProducts(q){
+ let filtered = products.filter(p =>
+  p.name.toLowerCase().includes(q.toLowerCase())
+ );
+ display(filtered);
+}
+
+function addProduct(){
+ let name = document.getElementById('name').value;
+ let img = document.getElementById('img').value;
+ let link = document.getElementById('link').value;
+ let category = document.getElementById('category').value;
+
+ if(!name || !img || !link){
+  alert("Fill all fields");
+  return;
+ }
+
+ products.push({name,img,link,category});
+ save();
+ display();
+
+ alert("Product added!");
+}
+
+display();
+
+</script>
+
+</body>
+</html>
