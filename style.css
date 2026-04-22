@@ -1,0 +1,349 @@
+/* =========================
+   GLOBAL STYLE
+========================= */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#f3f4f6;
+  color:#111827;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#111827;
+  color:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search{
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  width:250px;
+  outline:none;
+  transition:0.3s;
+}
+
+.search:focus{
+  box-shadow:0 0 0 2px #2563eb;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  padding:20px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero{
+  background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab') center/cover;
+  height:220px;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px;
+  color:#fff;
+  margin-bottom:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero h1{
+  margin:0;
+  font-size:28px;
+}
+
+.hero p{
+  opacity:0.9;
+}
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+.categories button{
+  margin:5px;
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#e5e7eb;
+  transition:0.3s;
+  font-weight:500;
+}
+
+.categories button:hover{
+  background:#d1d5db;
+}
+
+.categories button.active{
+  background:#2563eb;
+  color:#fff;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+.card{
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:12px;
+}
+
+.card-body h4{
+  margin:0;
+}
+
+/* =========================
+   AFFILIATE BUTTON
+========================= */
+.btn{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ff9900,#ff6600);
+  color:#fff;
+  font-weight:600;
+  transition:0.3s;
+  box-shadow:0 4px 10px rgba(255,153,0,0.3);
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 8px 20px rgba(255,153,0,0.5);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .search{
+    width:100%;
+  }
+
+  .header{
+    flex-direction:column;
+    gap:10px;
+  }
+}/* =========================
+   GLOBAL STYLE
+========================= */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#f3f4f6;
+  color:#111827;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#111827;
+  color:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search{
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  width:250px;
+  outline:none;
+  transition:0.3s;
+}
+
+.search:focus{
+  box-shadow:0 0 0 2px #2563eb;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  padding:20px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero{
+  background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab') center/cover;
+  height:220px;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px;
+  color:#fff;
+  margin-bottom:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero h1{
+  margin:0;
+  font-size:28px;
+}
+
+.hero p{
+  opacity:0.9;
+}
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+.categories button{
+  margin:5px;
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#e5e7eb;
+  transition:0.3s;
+  font-weight:500;
+}
+
+.categories button:hover{
+  background:#d1d5db;
+}
+
+.categories button.active{
+  background:#2563eb;
+  color:#fff;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+.card{
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:12px;
+}
+
+.card-body h4{
+  margin:0;
+}
+
+/* =========================
+   AFFILIATE BUTTON
+========================= */
+.btn{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ff9900,#ff6600);
+  color:#fff;
+  font-weight:600;
+  transition:0.3s;
+  box-shadow:0 4px 10px rgba(255,153,0,0.3);
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 8px 20px rgba(255,153,0,0.5);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .search{
+    width:100%;
+  }
+
+  .header{
+    flex-direction:column;
+    gap:10px;
+  }
+}
