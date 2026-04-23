@@ -1,22 +1,24 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
+<title>UrbanEssentials</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h2>Add Product</h2>
+<div class="header">
+  <h2>UrbanEssentials</h2>
+  <input placeholder="Search..." onkeyup="searchProducts(this.value)">
+</div>
 
-<input id="name" placeholder="Name">
-<input id="img" placeholder="Image">
-<input id="link" placeholder="Affiliate Link">
-<input id="category" placeholder="Category">
+<div class="hero">
+  <h1>Smart Essentials</h1>
+</div>
 
-<button onclick="addProduct()">Add</button>
+<div id="products" class="grid"></div>
 
-<script type="module" src="admin.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
